@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "CatholicApp",
+    "name": "LatinPrayerApp",
     "slug": "CatholicApp",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -27,6 +27,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "A small app with a list of prayers in Latin and English. More planned!"
   }
 }
