@@ -1,16 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, ScrollView, View, Button } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, ScrollView, View, Button, Platform } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { ListItem } from 'react-native-elements';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 
 import { PaterNoster, AveMaria, SymbolumApostolorum, BenedictioMensae, SanctumMichael, SignumCrucis, DoxologiaMinor, SalveRegina, OratioFatima } from './Screens/LatinPrayers';
-
+import { Readings } from './Screens/Readings';
 
 const navigationRef = React.createRef();
 
@@ -112,31 +113,64 @@ function PrayerScreen ({ navigation }) {
     );
 }
 
-const getReading = async () => {
-    try {
-        const cheerio = require('react-native-cheerio');
-        let response = await fetch(
-            'https://bible.usccb.org/daily-bible-reading'
-        );
-        let temp = await response.text();
-        const $ = cheerio.load(temp);
-        let reading1 = $('div[class="innerblock"] > div[class="content-body"]');
-        console.log(reading1.text());
-        console.log(Object.keys(reading1));
-        console.log(reading1.get(0));
-
-        return true;
-    } catch (error){
-        console.log(error);
-    }
-};
-
 function ReadingsScreen({ navigation }){
+    navigation.setOptions({
+        headerRight: () => (
+            <Button 
+                title="Date"
+                onPress={() => {
+                    showDatePicker();
+                }}
+            />
+        )
+    })
+
+    const [isDatePickerVisible, setDatePickerVisible] = useState(false);
+    const [initDate, setInitDate] = useState(new Date());
+    const [myKey, setMyKey] = useState(1);
+    const [lectDate, setLectDate] = useState("");
+
+    const refreshKey = () => setMyKey(myKey + 1);
+    const refreshLectDate = (newDate) => {
+        setLectDate(newDate);
+    }
+    const refreshInitDate = (date) => {
+        setInitDate(date);
+    }
+    const showDatePicker = () => {
+        setDatePickerVisible(true);
+    }
+    const hideDatePicker = () => {
+        setDatePickerVisible(false);
+    }
+
+    const handleConfirm = (date) => {
+        let dateString = date.toISOString();
+        let year = dateString.substring(2,4);
+        let month = dateString.substring(5,7);
+        let day = dateString.substring(8,10);
+        let newDate = month.concat(day).concat(year);
+        refreshInitDate(date);
+        refreshLectDate(newDate);
+        refreshKey();
+        console.log(lectDate);
+        hideDatePicker();
+    }
+
     return(
         <ScrollView>
-            <Text>This page will (eventually) pull the daily readings from the USCCB website.</Text>
-                <Button onPress={ getReading }
-                        title="Press Me" />
+            <DateTimePickerModal
+                isVisible={isDatePickerVisible}
+                mode="date"
+                display="spinner"
+                date={initDate}
+                onConfirm={handleConfirm}
+                onCancel={hideDatePicker}
+                minimumDate={new Date(2013, 11, 31)}
+                maximumDate={new Date(2021, 11, 31)}
+            />
+            <Readings key={myKey} date={lectDate}/>
+
         </ScrollView>
 
     );
@@ -213,6 +247,18 @@ function PrayerStackNavigator({ navigation }){
     );
 }
 
+const ReadingStack = createStackNavigator();
+function ReadingsStackNavigator({ navigation }){
+    return(
+        <ReadingStack.Navigator >
+            <ReadingStack.Screen 
+                name="Readings" 
+                component={ReadingsScreen}
+                options={{ title: 'Readings' }}
+            />
+        </ReadingStack.Navigator>
+    );
+}
 const Tab = createBottomTabNavigator();
 function App() {
   return (
@@ -220,7 +266,7 @@ function App() {
         <Tab.Navigator >
             <Tab.Screen 
                 name="ReadingsScreenNavigator"
-                component={ReadingsScreen}
+                component={ReadingsStackNavigator}
                 options={{
                     title: 'Readings',
                     tabBarIcon: ({ color, size }) => (
@@ -260,6 +306,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     // alignItems: 'center',
     // justifyContent: 'center',
+  },
+  text: {
+    fontSize:20,
+  },
+  separator: {
+    borderBottomColor:'black',
+    borderBottomWidth:1,
+    marginLeft:5,
+    marginRight:5,
+    marginTop:15,
+    marginBottom:15,
   },
 });
 
