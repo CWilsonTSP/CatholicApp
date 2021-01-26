@@ -263,7 +263,15 @@ const Tab = createBottomTabNavigator();
 function App() {
   return (
     <NavigationContainer ref={navigationRef}>
-        <Tab.Navigator >
+        <Tab.Navigator 
+            tabBarOptions={{
+                activeBackgroundColor:'#111111',                
+                inactiveBackgroundColor:'#333333',                
+                activeTintColor:'white',                
+                inactiveTintColor:'white',                
+            }}
+
+        >
             <Tab.Screen 
                 name="ReadingsScreenNavigator"
                 component={ReadingsStackNavigator}

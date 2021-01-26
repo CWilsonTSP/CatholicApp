@@ -61,9 +61,9 @@ class Readings extends Component{
         }else{
             // console.log(typeof(this.state.data.readings));
             return(
-            <ScrollView style={styles.container}>
-                <Text style={{...styles.heading,textAlign:'center'}}>{this.state.data.title}</Text>
-                <Text style={{...styles.heading,textAlign:'center'}}>{this.state.data.lectionary}</Text>
+            <ScrollView >
+                <Text style={{...styles.titleHeading,textAlign:'center'}}>{this.state.data.title}</Text>
+                <Text style={{...styles.titleHeading,textAlign:'center'}}>{this.state.data.lectionary}</Text>
                     <Text style={styles.separator}></Text>
     
                 {
@@ -78,41 +78,49 @@ class Readings extends Component{
                         if (key == 0){
                             return (
                                 <View>
-                                    <Text style={styles.heading}>Reading I</Text>
-                                    <Text style={styles.verse}>{data.verse}</Text>
-                    <Text style={styles.separator}></Text>
-                                <Text style={styles.text} key={key}>{data.text}</Text>
-                    <Text style={styles.separator}></Text>
+                                    <View style={styles.headerBar}>
+                                        <Text style={styles.heading}>Reading I</Text>
+                                        <Text style={styles.verse}>{data.verse}</Text>
+                                    </View>
+                                    <View style={styles.container}>
+                                        <Text style={styles.text} key={key}>{data.text}</Text>
+                                    </View>
                                 </View>
                             )
                         }else if (key == 1){
                             return (
                                 <View>
-                                    <Text style={styles.heading}>Psalm</Text>
-                                    <Text style={styles.verse}>{data.verse}</Text>
-                    <Text style={styles.separator}></Text>
-                                <Text style={styles.text} key={key}>{data.text}</Text>
-                    <Text style={styles.separator}></Text>
+                                    <View style={styles.headerBar}>
+                                        <Text style={styles.heading}>Psalm</Text>
+                                        <Text style={styles.verse}>{data.verse}</Text>
+                                    </View>
+                                    <View style={styles.container}>
+                                        <Text style={styles.text} key={key}>{data.text}</Text>
+                                    </View>
                                 </View>
                             )
                         }else if (key == 2){
                             return (
                                 <View>
-                                    <Text style={styles.heading}>Gospel Acclamation</Text>
-                                    <Text style={styles.verse}>{data.verse}</Text>
-                    <Text style={styles.separator}></Text>
-                                <Text style={styles.text} key={key}>{data.text}</Text>
-                    <Text style={styles.separator}></Text>
+                                    <View style={styles.headerBar}>
+                                        <Text style={styles.heading}>Gospel Acclamation</Text>
+                                        <Text style={styles.verse}>{data.verse}</Text>
+                                    </View>
+                                    <View style={styles.container}>
+                                        <Text style={styles.text} key={key}>{data.text}</Text>
+                                    </View>
                                 </View>
                             )
                         }else if (key == 3){
                             return (
                                 <View>
-                                    <Text style={styles.heading}>Gospel</Text>
-                                    <Text style={styles.verse}>{data.verse}</Text>
-                    <Text style={styles.separator}></Text>
-                                <Text style={styles.text} key={key}>{data.text}</Text>
-                    <Text style={styles.separator}></Text>
+                                    <View style={styles.headerBar}>
+                                        <Text style={styles.heading}>Gospel</Text>
+                                        <Text style={styles.verse}>{data.verse}</Text>
+                                    </View>
+                                    <View style={styles.container}>
+                                        <Text style={styles.text} key={key}>{data.text}</Text>
+                                    </View>
                                 </View>
                             )
                         }
@@ -121,51 +129,61 @@ class Readings extends Component{
                         if (key == 0){
                             return (
                                 <View>
-                                    <Text style={styles.heading}>Reading I</Text>
-                                    <Text style={styles.verse}>{data.verse}</Text>
-                    <Text style={styles.separator}></Text>
-                                <Text style={styles.text} key={key}>{data.text}</Text>
-                    <Text style={styles.separator}></Text>
+                                    <View style={styles.headerBar}>
+                                        <Text style={styles.heading}>Reading I</Text>
+                                        <Text style={styles.verse}>{data.verse}</Text>
+                                    </View>
+                                    <View style={styles.container}>
+                                        <Text style={styles.text} key={key}>{data.text}</Text>
+                                    </View>
                                 </View>
                             )
                         }else if (key == 1){
                             return (
                                 <View>
-                                    <Text style={styles.heading}>Psalm</Text>
-                                    <Text style={styles.verse}>{data.verse}</Text>
-                    <Text style={styles.separator}></Text>
-                                <Text style={styles.text} key={key}>{data.text}</Text>
-                    <Text style={styles.separator}></Text>
+                                    <View style={styles.headerBar}>
+                                        <Text style={styles.heading}>Psalm</Text>
+                                        <Text style={styles.verse}>{data.verse}</Text>
+                                    </View>
+                                    <View style={styles.container}>
+                                        <Text style={styles.text} key={key}>{data.text}</Text>
+                                    </View>
                                 </View>
                             )
                         }else if (key == 2){
                             return (
                                 <View>
-                                    <Text style={styles.heading}>Reading II</Text>
-                                    <Text style={styles.verse}>{data.verse}</Text>
-                    <Text style={styles.separator}></Text>
-                                <Text style={styles.text} key={key}>{data.text}</Text>
-                    <Text style={styles.separator}></Text>
+                                    <View style={styles.headerBar}>
+                                        <Text style={styles.heading}>Reading II</Text>
+                                        <Text style={styles.verse}>{data.verse}</Text>
+                                    </View>
+                                    <View style={styles.container}>
+                                        <Text style={styles.text} key={key}>{data.text}</Text>
+                                    </View>
                                 </View>
                             )
                         }else if (key == 3){
                             return (
                                 <View>
-                                    <Text style={styles.heading}>Gospel Acclamation</Text>
-                                    <Text style={styles.verse}>{data.verse}</Text>
-                    <Text style={styles.separator}></Text>
-                                <Text style={styles.text} key={key}>{data.text}</Text>
-                    <Text style={styles.separator}></Text>
+                                    <View style={styles.headerBar}>
+                                        <Text style={styles.heading}>Gospel Acclamation</Text>
+                                        <Text style={styles.verse}>{data.verse}</Text>
+                                    </View>
+                                    <View style={styles.container}>
+                                        <Text style={styles.text} key={key}>{data.text}</Text>
+                                    </View>
                                 </View>
                             )
                         }else if (key == 4){
                             return (
                                 <View>
-                                    <Text style={styles.heading}>Gospel</Text>
-                                    <Text style={styles.verse}>{data.verse}</Text>
-                    <Text style={styles.separator}></Text>
-                                <Text style={styles.text} key={key}>{data.text}</Text>
-                    <Text style={styles.separator}></Text>
+                                    <View style={styles.headerBar}>
+                                        <Text style={styles.heading}>Gospel</Text>
+                                        <Text style={styles.verse}>{data.verse}</Text>
+                                    </View>
+                                    <View style={styles.container}>
+                                        <Text style={styles.text} key={key}>{data.text}</Text>
+                                    </View>
                                 </View>
                             )
                         }
@@ -188,8 +206,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     // alignItems: 'center',
     // justifyContent: 'center',
-    padding:10,
+    padding:15,
     paddingTop:20,
+    paddingBottom:20,
   },
   splash: {
     flex: 1,
@@ -199,15 +218,36 @@ const styles = StyleSheet.create({
     paddingTop:20,
   },
   text: {
-    fontSize:20,
+    fontSize:14,
+    fontStyle:'italic',
+    color:'#555555',
   },
   verse: {
-    fontSize:20,
-    fontStyle:'italic',
+    fontSize:16,
+    fontWeight: 'bold',
+    color:'white',
+    //  marginLeft:'auto',
+    textTransform:'uppercase',
   },
   heading: {
+    fontSize:16,
+    fontWeight: 'bold',
+    color:'white',
+    textTransform:'uppercase',
+  },
+  titleHeading: {
     fontSize:24,
     fontWeight: 'bold',
+    textTransform:'uppercase',
+  },
+  headerBar: {
+    flex:1,
+    flexDirection:'row',
+    backgroundColor:'#555555',
+    padding:6,
+    paddingTop:6,
+    paddingBottom:6,
+    justifyContent: 'space-around',
   },
   separator: {
     marginTop:15,
