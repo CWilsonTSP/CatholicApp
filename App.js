@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, ScrollView, View, Button, Platform } from 'react-native';
+import { StyleSheet, Text, ScrollView, View, Button, Platform, TouchableOpacity } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -116,12 +116,14 @@ function PrayerScreen ({ navigation }) {
 function ReadingsScreen({ navigation }){
     navigation.setOptions({
         headerRight: () => (
-            <Button 
-                title="Date"
+            <TouchableOpacity 
                 onPress={() => {
                     showDatePicker();
                 }}
-            />
+            >
+                    <Text style={{fontSize: 14, color:'white', margin: 12}}>
+                        DATE</Text>
+            </TouchableOpacity>
         )
     })
 
@@ -187,61 +189,68 @@ function SettingsScreen({ navigation }){
 const Stack = createStackNavigator();
 function PrayerStackNavigator({ navigation }){
     return(
-        <Stack.Navigator >
+        <Stack.Navigator 
+            screenOptions={{
+                headerTintColor: 'white',
+                headerStyle: {
+                    backgroundColor: '#6519ba'
+                }
+            }}
+        >
             <Stack.Screen 
                 name="Home" 
                 component={PrayerScreen}
-                options={{ title: 'Prayers' }}
+                options={{ title: 'PRAYERS' }}
             />
             <Stack.Screen 
                 name="Readings" 
                 component={ReadingsScreen}
-                options={{ title: 'Readings' }}
+                options={{ title: 'READINGS' }}
             />
             <Stack.Screen 
                 name="PaterNoster" 
                 component={PaterNoster} 
-                options={{ title: 'Pater Noster' }}
+                options={{ title: 'PATER NOSTER' }}
             />
             <Stack.Screen 
                 name="AveMaria"
                 component={AveMaria} 
-                options={{ title: 'Ave Maria' }}
+                options={{ title: 'AVE MARIA' }}
             />
             <Stack.Screen
                 name="SymbolumApostolorum"
                 component={SymbolumApostolorum} 
-                options={{ title: 'Credo' }}
+                options={{ title: 'CREDO' }}
             />
             <Stack.Screen
                 name="BenedictioMensae"
                 component={BenedictioMensae} 
-                options={{ title: 'Benedictio Mensae' }}
+                options={{ title: 'BENEDICTIO MENSAE' }}
             />
             <Stack.Screen
                 name="SanctumMichael"
                 component={SanctumMichael} 
-                options={{ title: 'Sanctum Michael' }}
+                options={{ title: 'SANCTUM MICHAEL' }}
             />
             <Stack.Screen
                 name="SignumCrucis"
                 component={SignumCrucis} 
-                options={{ title: 'Signum Crucis' }}
+                options={{ title: 'SIGNUM CRUCIS' }}
             />
             <Stack.Screen
                 name="DoxologiaMinor"
                 component={DoxologiaMinor} 
-                options={{ title: 'Doxologia Minor' }}
+                options={{ title: 'DOXOLOGIA MINOR' }}
             />
             <Stack.Screen
                 name="SalveRegina"
                 component={SalveRegina} 
-                options={{ title: 'Salve Regina' }}
+                options={{ title: 'SALVE REGINA' }}
             />
             <Stack.Screen
                 name="OratioFatima"
                 component={OratioFatima} 
-                options={{ title: 'Oratio Fatima' }}
+                options={{ title: 'ORATIO FATIMA' }}
             />
         </Stack.Navigator>
     );
@@ -250,11 +259,18 @@ function PrayerStackNavigator({ navigation }){
 const ReadingStack = createStackNavigator();
 function ReadingsStackNavigator({ navigation }){
     return(
-        <ReadingStack.Navigator >
+        <ReadingStack.Navigator 
+            screenOptions={{
+                headerTintColor: 'white',
+                headerStyle: {
+                    backgroundColor: '#6519ba'
+                }
+            }}
+        >
             <ReadingStack.Screen 
                 name="Readings" 
                 component={ReadingsScreen}
-                options={{ title: 'Readings' }}
+                options={{ title: 'READINGS' }}
             />
         </ReadingStack.Navigator>
     );
@@ -276,7 +292,7 @@ function App() {
                 name="ReadingsScreenNavigator"
                 component={ReadingsStackNavigator}
                 options={{
-                    title: 'Readings',
+                    title: 'READINGS',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="book-open-page-variant" color={color} size={size}/>
                     )
@@ -286,7 +302,7 @@ function App() {
                 name="PrayersStackNavigator"
                 component={PrayerStackNavigator}
                 options={{
-                    title: 'Prayers',
+                    title: 'PRAYERS',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="bookmark-multiple-outline" color={color} size={size}/>
                     )
@@ -296,14 +312,14 @@ function App() {
                 name="SettingsScreenNavigator"
                 component={SettingsScreen}
                 options={{
-                    title: 'Settings',
+                    title: 'SETTINGS',
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="settings-outline" color={color} size={size}/>
                     )
                 }}
             />
         </Tab.Navigator>
-        <StatusBar style="dark"/>
+        <StatusBar style="light"/>
     </NavigationContainer>
   );
 }
