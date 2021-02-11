@@ -160,7 +160,7 @@ function ReadingsScreen({ navigation }){
     }
 
     return(
-        <ScrollView>
+        <ScrollView style={styles.container}>
             <DateTimePickerModal
                 isVisible={isDatePickerVisible}
                 mode="date"

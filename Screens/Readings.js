@@ -61,10 +61,12 @@ class Readings extends Component{
         }else{
             // console.log(typeof(this.state.data.readings));
             return(
-            <ScrollView >
-                <Text style={{...styles.titleHeading,textAlign:'center'}}>{this.state.data.title}</Text>
-                <Text style={{...styles.titleHeading,textAlign:'center'}}>{this.state.data.lectionary}</Text>
-                    <Text style={styles.separator}></Text>
+            <ScrollView style={{backgroundColor: '#fff'}}>
+                <View style={{padding:20,paddingTop:30,paddingBottom:30,color:'6519ba'}}>
+                <Text style={styles.titleHeading}>{this.state.data.title}</Text>
+                <Text style={styles.titleHeading}>{this.state.data.lectionary}</Text>
+
+                </View>
     
                 {
                     this.state.data.readings.map((data, key) => {
@@ -219,14 +221,15 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize:14,
-    fontStyle:'italic',
+    // fontStyle:'italic',
     color:'#555555',
+    textAlign: 'justify',
   },
   verse: {
-    fontSize:16,
+    fontSize: 12,
     fontWeight: 'bold',
     color:'white',
-    //  marginLeft:'auto',
+    marginLeft:'auto',
     textTransform:'uppercase',
   },
   heading: {
@@ -238,15 +241,18 @@ const styles = StyleSheet.create({
   titleHeading: {
     fontSize:24,
     fontWeight: 'bold',
+    textAlign:'center',
+    color:'#6519BA',
     textTransform:'uppercase',
   },
   headerBar: {
     flex:1,
     flexDirection:'row',
     backgroundColor:'#555555',
-    padding:6,
+    padding:16,
     paddingTop:6,
     paddingBottom:6,
+    alignItems: 'center',
     justifyContent: 'space-around',
   },
   separator: {

@@ -253,7 +253,8 @@ const styles = StyleSheet.create({
     paddingTop:20,
   },
   text: {
-    fontSize:20,
+    fontSize:14,
+    color:'#555555',
   },
   separator: {
     borderBottomColor:'black',
