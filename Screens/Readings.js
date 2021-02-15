@@ -223,7 +223,6 @@ const styles = StyleSheet.create({
     fontSize:14,
     // fontStyle:'italic',
     color:'#555555',
-    textAlign: 'justify',
   },
   verse: {
     fontSize: 12,
