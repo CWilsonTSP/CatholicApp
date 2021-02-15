@@ -12,6 +12,7 @@ import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
 import { PaterNoster, AveMaria, SymbolumApostolorum, BenedictioMensae, SanctumMichael, SignumCrucis, DoxologiaMinor, SalveRegina, OratioFatima } from './Screens/LatinPrayers';
 import { Readings } from './Screens/Readings';
+import { Pronunciation } from './Screens/pronunciation';
 
 const navigationRef = React.createRef();
 
@@ -105,6 +106,16 @@ function PrayerScreen ({ navigation }) {
                 <ListItem.Content>
                     <ListItem.Title>Oratio Fatima</ListItem.Title>
                     <ListItem.Subtitle>Fatima Prayer</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+
+            <ListItem 
+                bottomDivider
+                onPress={() => navigation.navigate('Pronunciation')}>
+                <ListItem.Content>
+                    <ListItem.Title>Latin Pronunciation</ListItem.Title>
+                    <ListItem.Subtitle></ListItem.Subtitle>
                 </ListItem.Content>
                 <ListItem.Chevron />
             </ListItem>
@@ -251,6 +262,11 @@ function PrayerStackNavigator({ navigation }){
                 name="OratioFatima"
                 component={OratioFatima} 
                 options={{ title: 'ORATIO FATIMA' }}
+            />
+            <Stack.Screen
+                name="Pronunciation"
+                component={Pronunciation} 
+                options={{ title: 'LATIN PRONUNCIATION' }}
             />
         </Stack.Navigator>
     );
