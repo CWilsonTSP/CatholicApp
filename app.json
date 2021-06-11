@@ -28,6 +28,11 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "A small app with a list of prayers in Latin and English. Also pulls the lectionary from usccb.org. More planned!"
+    "description": "A small app with a list of prayers in Latin and English. Also pulls the lectionary from usccb.org. More planned!",
+    "sdkVersion": "39.0.0",
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }

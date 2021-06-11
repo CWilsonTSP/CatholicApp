@@ -4,7 +4,7 @@ import { StyleSheet, Text, ScrollView, View, Button } from 'react-native';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Table, Row, Rows } from 'react-native-table-component';
+// import { Table, Row, Rows } from 'react-native-table-component';
 import { Component } from 'react';
 
 
@@ -40,10 +40,12 @@ export default class Pronunciation extends Component {
         const state = this.state;
         return(
            <ScrollView style={styles.container}>
-                <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
-                    <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/>
-                    <Rows data={state.tableData} textStyle={styles.text}/>
-                </Table>
+                {/* <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}> */}
+                {/*     <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/> */}
+                {/*     <Rows data={state.tableData} textStyle={styles.text}/> */}
+                {/* </Table> */}
+
+                <Text>Coming Soon</Text>
             </ScrollView>
         )
 
