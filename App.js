@@ -6,18 +6,57 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { ListItem } from "react-native-elements";
+import { ListItem, CheckBox } from "react-native-elements";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 import { PaterNoster, AveMaria, SymbolumApostolorum, BenedictioMensae, SanctumMichael, SignumCrucis, DoxologiaMinor, SalveRegina, OratioFatima } from "./Screens/LatinPrayers";
 import { Humility, SacredHeart } from "./Screens/Litanies";
 import { Examen, Introduction } from "./Screens/Examen";
 import { Readings } from "./Screens/Readings";
+import { Settings } from "./Screens/Settings";
 // import { Pronunciation } from "./Screens/pronunciation";
 
 const navigationRef = React.createRef();
 
 function PrayerScreen({ navigation }) {
+    return (
+        <ScrollView style={styles.container}>
+            <ListItem bottomDivider onPress={() => navigation.navigate("Basics")}>
+                <ListItem.Content>
+                    <ListItem.Title>Basics</ListItem.Title>
+                    <ListItem.Subtitle>Shorter Prayers</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+
+            <ListItem bottomDivider onPress={() => navigation.navigate("LitanyScreen")}>
+                <ListItem.Content>
+                    <ListItem.Title>Litanies</ListItem.Title>
+                    <ListItem.Subtitle>Litanies</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+
+            <ListItem bottomDivider onPress={() => navigation.navigate("Examen")}>
+                <ListItem.Content>
+                    <ListItem.Title>Examen</ListItem.Title>
+                    <ListItem.Subtitle>Examination of Conscience</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+
+            {/* <ListItem bottomDivider onPress={() => navigation.navigate("Pronunciation")}> */}
+            {/*     <ListItem.Content> */}
+            {/*         <ListItem.Title>Latin Pronunciation</ListItem.Title> */}
+            {/*         <ListItem.Subtitle></ListItem.Subtitle> */}
+            {/*     </ListItem.Content> */}
+            {/*     <ListItem.Chevron /> */}
+            {/* </ListItem> */}
+        </ScrollView>
+    );
+}
+
+function Basics({ navigation }) {
     return (
         <ScrollView style={styles.container}>
             <ListItem bottomDivider onPress={() => navigation.navigate("PaterNoster")}>
@@ -91,7 +130,13 @@ function PrayerScreen({ navigation }) {
                 </ListItem.Content>
                 <ListItem.Chevron />
             </ListItem>
+        </ScrollView>
+    );
+}
 
+function LitanyScreen({ navigation }) {
+    return (
+        <ScrollView style={styles.container}>
             <ListItem bottomDivider onPress={() => navigation.navigate("LitanyOfHumility")}>
                 <ListItem.Content>
                     <ListItem.Title>Litany of Humilty</ListItem.Title>
@@ -107,22 +152,6 @@ function PrayerScreen({ navigation }) {
                 </ListItem.Content>
                 <ListItem.Chevron />
             </ListItem>
-
-            <ListItem bottomDivider onPress={() => navigation.navigate("Examen")}>
-                <ListItem.Content>
-                    <ListItem.Title>Examen</ListItem.Title>
-                    <ListItem.Subtitle>Examination of Conscience</ListItem.Subtitle>
-                </ListItem.Content>
-                <ListItem.Chevron />
-            </ListItem>
-
-            {/* <ListItem bottomDivider onPress={() => navigation.navigate("Pronunciation")}> */}
-            {/*     <ListItem.Content> */}
-            {/*         <ListItem.Title>Latin Pronunciation</ListItem.Title> */}
-            {/*         <ListItem.Subtitle></ListItem.Subtitle> */}
-            {/*     </ListItem.Content> */}
-            {/*     <ListItem.Chevron /> */}
-            {/* </ListItem> */}
         </ScrollView>
     );
 }
@@ -183,7 +212,7 @@ function ReadingsScreen({ navigation }) {
 function SettingsScreen({ navigation }) {
     return (
         <ScrollView>
-            <Text>This page will (eventually) have settings that the user can change.</Text>
+            <Settings />
         </ScrollView>
     );
 }
@@ -200,6 +229,8 @@ function PrayerStackNavigator({ navigation }) {
             }}
         >
             <Stack.Screen name="Home" component={PrayerScreen} options={{ title: "PRAYERS" }} />
+            <Stack.Screen name="LitanyScreen" component={LitanyScreen} options={{ title: "LITANIES" }} />
+            <Stack.Screen name="Basics" component={Basics} options={{ title: "BASICS" }} />
             <Stack.Screen name="Readings" component={ReadingsScreen} options={{ title: "READINGS" }} />
             <Stack.Screen name="PaterNoster" component={PaterNoster} options={{ title: "PATER NOSTER" }} />
             <Stack.Screen name="AveMaria" component={AveMaria} options={{ title: "AVE MARIA" }} />

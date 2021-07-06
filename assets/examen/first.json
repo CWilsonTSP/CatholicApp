@@ -1,0 +1,67 @@
+[
+        {   "id": 10,
+            "key": "Disobeyed the commandments of God or the Church",
+            "checked": false
+        },
+        {   "id": 1,
+            "key": "Refused to accept what God has revealed as true, or what the Catholic Church proposes for belief",
+            "checked": false
+        },
+        {   "id": 2,
+            "key": "Denied the existence of God",
+            "checked": false
+        },
+        {   "id": 3,
+            "key": "Nourished and protected my faith",
+            "checked": false
+        },
+        {   "id": 4,
+            "key": "Rejected everything opposed to a sound faith",
+            "checked": false
+        },
+        {   "id": 5,
+            "key": "Deliberately misled others about doctrine or the faith",
+            "checked": false
+        },
+        {   "id": 6,
+            "key": "Rejected the Catholic faith, joined another Christian denomination, or joined or practiced another religion",
+            "checked": false
+        },
+        {   "id": 7,
+            "key": "Joined a group forbidden to Catholics (Masons, communists, etc.)",
+            "checked": false
+        },
+        {   "id": 8,
+            "key": "Despaired about my salvation or the forgiveness of my sins",
+            "checked": false
+        },
+        {   "id": 9,
+            "key": "Presumed on God’s mercy (Committing a sin in expectation of forgiveness, or asking for forgiveness without conversion and practicing virtue.)",
+            "checked": false
+        },
+        {   "id": 10,
+            "key": "Loved someone or something more than God (money, power, sex, ambition, etc.)",
+            "checked": false
+        },
+        {   "id": 11,
+            "key": "Let someone or something influence my choices more than God",
+            "checked": false
+        },
+        {   "id": 12,
+            "key": "Engaged in superstitious practices (Incl. horoscopes, fortune tellers, etc.)",
+            "checked": false
+        },
+        {   "id": 13,
+            "key": "Been involved in the occult (Seances, ouija board, worship of Satan, etc.)",
+            "checked": false
+        },
+        {   "id": 14,
+            "key": "Formally left the Catholic Church",
+            "checked": false
+        },
+        {   "id": 15,
+            "key": "Hidden a serious sin or told a lie in confession",
+            "checked": false
+        }
+]
+
