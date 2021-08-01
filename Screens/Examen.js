@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet, Text, ScrollView, View } from "react-native";
 import "react-native-gesture-handler";
-import { CheckBox } from "@react-native-community/checkbox"
+// import { CheckBox } from "@react-native-community/checkbox";
 
 const first = require("../assets/examen/first.json");
 
@@ -30,7 +30,7 @@ class Examen extends React.Component {
                         onchecked(item.id);
                     }}
                 >
-                        <CheckBox value={item.checked} onValueChange={()=>this.onchecked(item.id)}/>
+                    <CheckBox value={item.checked} onValueChange={() => this.onchecked(item.id)} />
                 </TouchableOpacity>
             );
         });
@@ -195,4 +195,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export { Introduction, Examen };
+export { Examen };

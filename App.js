@@ -37,13 +37,13 @@ function PrayerScreen({ navigation }) {
                 <ListItem.Chevron />
             </ListItem>
 
-            <ListItem bottomDivider onPress={() => navigation.navigate("Examen")}>
-                <ListItem.Content>
-                    <ListItem.Title>Examen</ListItem.Title>
-                    <ListItem.Subtitle>Examination of Conscience</ListItem.Subtitle>
-                </ListItem.Content>
-                <ListItem.Chevron />
-            </ListItem>
+            {/* <ListItem bottomDivider onPress={() => navigation.navigate("Examen")}> */}
+            {/*     <ListItem.Content> */}
+            {/*         <ListItem.Title>Examen</ListItem.Title> */}
+            {/*         <ListItem.Subtitle>Examination of Conscience</ListItem.Subtitle> */}
+            {/*     </ListItem.Content> */}
+            {/*     <ListItem.Chevron /> */}
+            {/* </ListItem> */}
 
             {/* <ListItem bottomDivider onPress={() => navigation.navigate("Pronunciation")}> */}
             {/*     <ListItem.Content> */}
