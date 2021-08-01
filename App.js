@@ -9,9 +9,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { ListItem, CheckBox } from "react-native-elements";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
-import { PaterNoster, AveMaria, SymbolumApostolorum, BenedictioMensae, SanctumMichael, SignumCrucis, DoxologiaMinor, SalveRegina, OratioFatima } from "./Screens/LatinPrayers";
+import { PaterNoster, SymbolumApostolorum, BenedictioMensae, SanctumMichael, SignumCrucis, DoxologiaMinor } from "./Screens/LatinPrayers";
+import { AveMaria, OratioFatima, SalveRegina, Memorare } from "./Screens/Marian";
 import { Humility, SacredHeart } from "./Screens/Litanies";
-import { Examen, Introduction } from "./Screens/Examen";
+import { Examen } from "./Screens/Examen";
 import { Readings } from "./Screens/Readings";
 import { Settings } from "./Screens/Settings";
 // import { Pronunciation } from "./Screens/pronunciation";
@@ -33,6 +34,14 @@ function PrayerScreen({ navigation }) {
                 <ListItem.Content>
                     <ListItem.Title>Litanies</ListItem.Title>
                     <ListItem.Subtitle>Litanies</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+
+            <ListItem bottomDivider onPress={() => navigation.navigate("Marian")}>
+                <ListItem.Content>
+                    <ListItem.Title>Beata Virgo Maria</ListItem.Title>
+                    <ListItem.Subtitle>Blessed Virgin Mary</ListItem.Subtitle>
                 </ListItem.Content>
                 <ListItem.Chevron />
             </ListItem>
@@ -127,6 +136,44 @@ function Basics({ navigation }) {
                 <ListItem.Content>
                     <ListItem.Title>Oratio Fatima</ListItem.Title>
                     <ListItem.Subtitle>Fatima Prayer</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+        </ScrollView>
+    );
+}
+
+function Marian({ navigation }) {
+    return (
+        <ScrollView style={styles.container}>
+            <ListItem bottomDivider onPress={() => navigation.navigate("AveMaria")}>
+                <ListItem.Content>
+                    <ListItem.Title>Ave Maria</ListItem.Title>
+                    <ListItem.Subtitle>Hail Mary</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+
+            <ListItem bottomDivider onPress={() => navigation.navigate("SalveRegina")}>
+                <ListItem.Content>
+                    <ListItem.Title>Salve Regina</ListItem.Title>
+                    <ListItem.Subtitle>Hail Holy Queen</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+
+            <ListItem bottomDivider onPress={() => navigation.navigate("OratioFatima")}>
+                <ListItem.Content>
+                    <ListItem.Title>Oratio Fatima</ListItem.Title>
+                    <ListItem.Subtitle>Fatima Prayer</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+
+            <ListItem bottomDivider onPress={() => navigation.navigate("Memorare")}>
+                <ListItem.Content>
+                    <ListItem.Title>Memorare</ListItem.Title>
+                    <ListItem.Subtitle>Memorare</ListItem.Subtitle>
                 </ListItem.Content>
                 <ListItem.Chevron />
             </ListItem>
@@ -231,9 +278,11 @@ function PrayerStackNavigator({ navigation }) {
             <Stack.Screen name="Home" component={PrayerScreen} options={{ title: "PRAYERS" }} />
             <Stack.Screen name="LitanyScreen" component={LitanyScreen} options={{ title: "LITANIES" }} />
             <Stack.Screen name="Basics" component={Basics} options={{ title: "BASICS" }} />
+            <Stack.Screen name="Marian" component={Marian} options={{ title: "BEATO VIRGO MARIA" }} />
             <Stack.Screen name="Readings" component={ReadingsScreen} options={{ title: "READINGS" }} />
             <Stack.Screen name="PaterNoster" component={PaterNoster} options={{ title: "PATER NOSTER" }} />
             <Stack.Screen name="AveMaria" component={AveMaria} options={{ title: "AVE MARIA" }} />
+            <Stack.Screen name="Memorare" component={Memorare} options={{ title: "MEMORARE" }} />
             <Stack.Screen name="SymbolumApostolorum" component={SymbolumApostolorum} options={{ title: "CREDO" }} />
             <Stack.Screen name="BenedictioMensae" component={BenedictioMensae} options={{ title: "BENEDICTIO MENSAE" }} />
             <Stack.Screen name="SanctumMichael" component={SanctumMichael} options={{ title: "SANCTUM MICHAEL" }} />
