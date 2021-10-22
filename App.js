@@ -260,7 +260,7 @@ function ReadingsScreen({ navigation }) {
 
     return (
         <ScrollView style={styles.container}>
-            <DateTimePickerModal isVisible={isDatePickerVisible} mode="date" display="spinner" date={initDate} onConfirm={handleConfirm} onCancel={hideDatePicker} minimumDate={new Date(2013, 11, 31)} maximumDate={new Date(2021, 11, 31)} />
+            <DateTimePickerModal isVisible={isDatePickerVisible} mode="date" display="inline" date={initDate} onConfirm={handleConfirm} onCancel={hideDatePicker} minimumDate={new Date(2013, 11, 31)} maximumDate={new Date(2021, 11, 31)} />
             <Readings key={myKey} date={lectDate} />
         </ScrollView>
     );
@@ -357,7 +357,7 @@ function App() {
                     component={SettingsScreen}
                     options={{
                         title: "SETTINGS",
-                        tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="settings-outline" color={color} size={size} />,
+                        tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="cog-outline" color={color} size={size} />,
                     }}
                 />
             </Tab.Navigator>
