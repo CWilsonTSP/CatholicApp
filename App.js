@@ -12,6 +12,7 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { PaterNoster, SymbolumApostolorum, BenedictioMensae, SanctumMichael, SignumCrucis, DoxologiaMinor } from "./Screens/LatinPrayers";
 import { AveMaria, OratioFatima, SalveRegina, Memorare } from "./Screens/Marian";
 import { Humility, SacredHeart } from "./Screens/Litanies";
+import { DivineMercy } from "./Screens/Chaplets";
 import { Examen } from "./Screens/Examen";
 import { Readings } from "./Screens/Readings";
 import { Settings } from "./Screens/Settings";
@@ -32,8 +33,8 @@ function PrayerScreen({ navigation }) {
 
             <ListItem bottomDivider onPress={() => navigation.navigate("LitanyScreen")}>
                 <ListItem.Content>
-                    <ListItem.Title>Litanies</ListItem.Title>
-                    <ListItem.Subtitle>Litanies</ListItem.Subtitle>
+                    <ListItem.Title>Litanies and Chaplets</ListItem.Title>
+                    <ListItem.Subtitle>Litanies and Chaplets</ListItem.Subtitle>
                 </ListItem.Content>
                 <ListItem.Chevron />
             </ListItem>
@@ -199,6 +200,15 @@ function LitanyScreen({ navigation }) {
                 </ListItem.Content>
                 <ListItem.Chevron />
             </ListItem>
+
+            <ListItem bottomDivider onPress={() => navigation.navigate("ChapletOfDivineMercy")}>
+                <ListItem.Content>
+                    <ListItem.Title>Chaplet of Divine Mercy</ListItem.Title>
+                    <ListItem.Subtitle>Chaplet of Divine Mercy</ListItem.Subtitle>
+                </ListItem.Content>
+                <ListItem.Chevron />
+            </ListItem>
+
         </ScrollView>
     );
 }
@@ -276,7 +286,7 @@ function PrayerStackNavigator({ navigation }) {
             }}
         >
             <Stack.Screen name="Home" component={PrayerScreen} options={{ title: "PRAYERS" }} />
-            <Stack.Screen name="LitanyScreen" component={LitanyScreen} options={{ title: "LITANIES" }} />
+            <Stack.Screen name="LitanyScreen" component={LitanyScreen} options={{ title: "LITANIES AND CHAPLETS" }} />
             <Stack.Screen name="Basics" component={Basics} options={{ title: "BASICS" }} />
             <Stack.Screen name="Marian" component={Marian} options={{ title: "BEATO VIRGO MARIA" }} />
             <Stack.Screen name="Readings" component={ReadingsScreen} options={{ title: "READINGS" }} />
@@ -291,6 +301,7 @@ function PrayerStackNavigator({ navigation }) {
             <Stack.Screen name="SalveRegina" component={SalveRegina} options={{ title: "SALVE REGINA" }} />
             <Stack.Screen name="OratioFatima" component={OratioFatima} options={{ title: "ORATIO FATIMA" }} />
             <Stack.Screen name="LitanyOfHumility" component={Humility} options={{ title: "LITANY OF HUMILITY" }} />
+            <Stack.Screen name="ChapletOfDivineMercy" component={DivineMercy} options={{ title: "CHAPLET OF DIVINE MERCY" }} />
             <Stack.Screen name="SacredHeart" component={SacredHeart} options={{ title: "LITANY TO THE SACRED HEART OF JESUS" }} />
             <Stack.Screen name="Examen" component={Examen} options={{ title: "Examen" }} />
             {/* <Stack.Screen name="Pronunciation" component={Pronunciation} options={{ title: "LATIN PRONUNCIATION" }} /> */}
