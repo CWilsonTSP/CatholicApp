@@ -47,6 +47,19 @@ function Settings() {
     );
 }
 
+function ColorScheme()
+{
+    return (
+        <ScrollView style={styles.container}>
+            <View>
+                <ListItem.Title>Colorscheme</ListItem.Title>
+                <ListItem.Subtitle>Change the colors of the app</ListItem.Subtitle>
+            </View>
+        </ScrollView>
+
+    )
+}
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
